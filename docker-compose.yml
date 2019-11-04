@@ -1,4 +1,6 @@
-  mongo:
-    image: mongo
-    ports: [ '27017:27017' ]
-    volume: /disk01/data/db:/data/db
+version: '2'
+    services:
+      mongodb:
+        image: mongo:latest
+        volumes:
+          - ./disk01/data/db:/data/db
