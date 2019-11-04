@@ -1,0 +1,4 @@
+  mongo:
+    image: mongo
+    ports: [ '27017:27017' ]
+    volume: /disk01/data/db:/data/db
