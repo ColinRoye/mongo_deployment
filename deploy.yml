@@ -11,10 +11,12 @@
         force: yes
     - name: Run mix commands
       shell: cd /app
-          && sudo su && docker system prune
-          && sudo sysctl -w vm.max_map_count=524288
-          && sudo nohup docker-compose up --build&
-      ignore_errors: yes
+               && echo y | sudo docker system prune
+               && sudo rm -rd /disk01/data
+               && sudo sysctl -w vm.max_map_count=524288
+               && npm install
+               && sudo docker-compose down
+               && sudo nohup docker-compose up&
       #loop:
       #  - "do deps.get, compile"
       #  - "ecto.create"
